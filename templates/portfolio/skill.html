@@ -1,0 +1,362 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+<style>
+    body {
+        font-family: 'Nunito Sans', sans-serif;
+    }
+
+    .item-desc {
+        font-family: 'Nunito Sans', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 27px;
+        color: #595C6E;
+    }
+
+    .item-title {
+        font-family: 'Oxygen', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        color: #000000;
+    }
+
+    h2,
+    h4 {
+        font-family: 'Oxygen', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 28px;
+        line-height: 42px;
+        color: #000000;
+    }
+
+    #hire_btn {
+        background-color: #ea000d;
+        border: solid 2px #ea000d;
+        color: #ffffff;
+        width: 150px;
+        box-shadow: 0px 8px 24px rgba(70, 91, 186, 0.24);
+        border-radius: 6px;
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 24px;
+        line-height: 36px;
+        font-style: normal;
+
+    }
+
+    #hire_btn:hover {
+        background-color: #262626;
+        border: solid 2px #262626;
+        color: #ffffff;
+    }
+
+    #cv_btn {
+        background-color: #262626;
+        border: solid 2px #262626;
+        color: #ffffff;
+        width: 150px;
+        box-shadow: 0px 8px 24px rgba(70, 91, 186, 0.24);
+        border-radius: 6px;
+        font-family: 'Nunito Sans', sans-serif;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 36px;
+
+    }
+
+    #cv_btn:hover {
+        background-color: #ea000d;
+        border: solid 2px #ea000d;
+        color: #fff;
+    }
+
+    #myProject {
+        background-color: #FBFBFB;
+    }
+
+    #myContact {
+        background-color: #FBFBFB;
+    }
+
+    i {
+        font-size: 48px;
+    }
+
+    .fa-python {
+        color: #4B8BBE;
+    }
+
+    .fa-js-square {
+        color: #f0db4f;
+    }
+
+    .fa-vuejs {
+        color: #42b883;
+    }
+
+    .fa-html5 {
+        color: #e34c26;
+    }
+
+    .fa-css3-alt {
+        color: #264de4;
+    }
+
+    .fa-ubuntu {
+        color: #aa6128;
+    }
+
+    .fa-windows {
+        color: #00adef;
+    }
+
+    .fa-database {
+        color: #50a4e6;
+    }
+
+    .fa-android {
+        color: #3cb474;
+    }
+
+    .fa-bootstrap {
+        color: #8467e4;
+    }
+
+    #all_btn {
+
+        border: solid 1px #262626;
+        background-color: #262626;
+        color: #ffffff;
+    }
+
+    #pers_btn {
+
+        border: solid 1px #ea000d;
+        background-color: #ea000d;
+        color: #ffffff;
+    }
+
+    #prof_btn {
+
+        border: solid 1px #ea000d;
+        background-color: #ea000d;
+        color: #ffffff;
+
+    }
+
+    #pers_btn:hover {
+        border: solid 1px #262626;
+        background-color: #262626;
+        color: #ffffff;
+    }
+
+    #prof_btn:hover {
+        border: solid 1px #262626;
+        background-color: #262626;
+        color: #ffffff;
+    }
+
+    #pers_btn:focus {
+        outline: none !important;
+        border: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+    }
+
+    #prof_btn:focus {
+        outline: none !important;
+        border: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+    }
+
+    #all_btn:focus {
+        outline: none !important;
+        border: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        border: 1px solid #ea000d;
+        border-radius: 6px;
+
+    }
+
+    .form-group label {
+        font-family: 'Oxygen', sans-serif;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    .btn-submit {
+        background-color: #ea000d;
+        border: solid 2px #ea000d;
+        color: #ffffff;
+        box-shadow: 0px 4px 12px rgba(70, 91, 186, 0.24);
+        border-radius: 6px;
+    }
+
+    .btn-submit:hover {
+        background-color: #262626;
+        border: solid 2px #262626;
+        color: #ffffff;
+        box-shadow: 0px 4px 12px rgba(70, 91, 186, 0.24);
+        border-radius: 6px;
+    }
+
+    nav {
+        box-shadow: 6px 6px 6px #eeeeee;
+
+    }
+
+    /* change the brand and text color */
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-text {
+        color: #ea000d;
+    }
+
+
+    /* change the link color */
+    .navbar-custom .navbar-nav .nav-link {
+        color: #262626;
+    }
+
+    /* change the color of active or hovered links */
+    .navbar-custom .nav-item.active .nav-link,
+    .navbar-custom .nav-item:hover .nav-link {
+        color: #ea000d;
+    }
+</style>
+{% endblock css %}
+
+{% block body %}
+<div class="content-block" id="mySkill">
+    <div class="container">
+        <h2 class="section-title mb-3">Technical Skills</h2>
+        <div class="row">
+            <div class="item col-6 col-lg-4">
+                <div class="item-inner">
+                    <div class="item-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <h3 class="item-title">Python &amp; Django</h3>
+                    <div class="item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, impedit mollitia. Ex unde aliquam magni nam, facere perspiciatis eligendi officiis.</div>
+                </div>
+            </div>
+            <div class="item col-6 col-lg-4">
+                <div class="item-inner">
+                    <div class="item-icon">
+                        <i class="fab fa-js-square mr-4"></i><i class="fab fa-vuejs"></i>
+                    </div>
+                    <h3 class="item-title">JavaScript &amp; Vue </h3>
+                    <div class="item-desc">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Quasi, impedit mollitia. Ex unde aliquam magni nam, facere perspiciatis eligendi officiis.</div>
+                </div>
+            </div>
+            <div class="item col-6 col-lg-4">
+                <div class="item-inner">
+                    <div class="item-icon">
+                        <i class="fab fa-html5 mr-4"></i><i class="fab fa-css3-alt mr-4"></i>
+                        <i class="fab fa-bootstrap"></i>
+                    </div>
+                </div>
+                <h3 class="item-title">HTML, CSS &amp; Bootstrap</h3>
+                <div class="item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi, impedit mollitia. Ex unde aliquam magni nam, facere perspiciatis eligendi officiis.</div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <h2 class="section-title  mb-3">What Technology I use</h2>
+        <div class="row">
+            <div class="item col-6 col-lg-3">
+                <div class="item-inner">
+                    <div class="item-con">
+                        <i class="fab fa-github-square"></i>
+                    </div>
+                </div>
+                <h4 class="item-title">GitHub</h4>
+            </div>
+            <div class="item col-6 col-lg-3">
+                <div class="item-inner">
+                    <div class="item-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                </div>
+                <h4 class="item-title">PostgreSQL, SQLite &amp; MySQL </h4>
+            </div>
+            
+            <div class="item col-6 col-lg-3">
+                <div class="item-inner">
+                    <div class="item-con">
+                        <img class="mr-4" src="https://img.icons8.com/ios-glyphs/60/4a90e2/visual-studio.png"/>
+                        <img class="mr-4" src="https://img.icons8.com/color/48/000000/pycharm.png"/>
+                        <img class="" src="https://img.icons8.com/emoji/48/000000/atom-symbol-emoji.png"/>
+                    </div>
+                </div>
+                <h4 class="item-title">Visual Studio Code, Pycharm &amp; Atom</h4>
+            </div>
+            <div class="item col-6 col-lg-3">
+                <div class="item-innner">
+                    <div class="item-icon">
+                        <i class="fab fa-ubuntu mr-4"></i>
+                        <i class="fab fa-windows"></i>
+                    </div>
+                </div>
+                <h4 class="item-title"> Ubuntu 18.04 &amp; Windows 10</h4>
+            </div>
+
+        </div>
+    </div>
+    <div class="container mt-5">
+        <h2 class="section-title mb-3">Basic Kowledge</h2>
+        <div class="row">
+            <div class="item col-6 col-lg-3">
+                <div class="item-inner">
+                    <div class="item-icon">
+                        <img class="mr-4" src="https://img.icons8.com/color/50/000000/c-programming.png"/>
+                        <img src="https://img.icons8.com/color/48/000000/java-coffee-cup-logo--v1.png"/>
+                    </div>
+                </div>
+                <h4 class="item-title"> C &amp; Java</h3>
+            </div>
+            <div class="item col-6 col-lg-3">
+                <div class="item-inner">
+                    <div class="item-icon">
+                        <img src="https://img.icons8.com/ios-filled/50/26e07f/selenium-test-automation.png"/>
+                    </div>
+                </div>
+                <h4 class="item-title">Selenium-test-automation</h3>
+            </div>
+            <div class="item col-6 col-lg-3">
+                <div class="item-inner">
+                    <div class="item-icon">
+                        <i class="fab fa-android"></i>
+                    </div>
+                </div>
+                <h4 class="item-title">Android</h3>
+            </div>
+            <div class="item col-6 col-lg-3">
+                <div class="item-inner">
+                    <div class="item-icon">
+                        <img src="https://img.icons8.com/ios/50/4a90e2/manual-handling.png"/>
+                    </div>
+                </div>
+                <h4 class="item-title">Software Manual Testing</h3>
+            </div>
+        </div>
+    </div>
+    <div class="container pb-5">
+        <h2 class="section-title mb-3">What I do</h2>
+        <div class="section-intro ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti porro ullam quis minima, adipisci id expedita unde rerum exercitationem vel?</div>
+    </div>
+</div>
+{% endblock body %}

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-us">
+{% load static %}
+
+<head>
+    <title>Sohel Rana</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    {% include 'stylesheet.html' %}
+
+</head>
+
+<body>
+    {% include 'navbar.html' %}
+    <div class="content-block" id="myHeader">
+        <div class="container-fluid" id="app">
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="profile-image">
+                        <img src="" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam fugit consectetur repellat necessitatibus sint fugiat porro accusantium laborum iure quas.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+
+    <div class="content-block" id="myExperience">
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h2>Working Experience</h2>
+                </div>
+                <div class="col-lg-8"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-block" id="myProject">
+        <div class="container-fluid mt-5">
+            <div class="row">
+                <div class="col-lg-4">
+                    <h2>Projects</h2>
+                </div>
+                <div class="col-lg-8"></div>
+            </div>
+        </div>
+    </div>
+    <div class="content-block" id="myAbout">
+        <div class="overlay-2">
+            <h2 class="text-center">More About Me</h2>
+        </div>
+    </div>
+    <div class="content-block" id="contact">
+        <div class="overlay-3">
+            <header class="block-heading cleafix text-center">
+                <h1>Contact</h1>
+                <!-- <p>Feel Free to Contact</p> -->
+            </header>
+            <div class="block-content text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 wow animated fadeInLeft">
+                            <form class="contact-form" action="form.php">
+                                <input type="text" name="name" placeholder="Name" required>
+                                <input type="email" name="email" placeholder="Email" required>
+                                <textarea rows="5" name="message" placeholder="Say Something..." required></textarea>
+                                <input type="submit" value="Submit">
+                            </form>
+                        </div>
+                        <div class="col-md-6 wow animated fadeInRight">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="contact-info">
+                                        <div class="clearfix">
+                                            <div class="rotated-icon">
+                                                <div class="sqaure-nebir"></div>
+                                                <i class="fa fa-map-marker"></i>
+                                            </div>
+                                            <p><strong> Address:</strong> 308 Negra Arroyo Lane Albuquerque, New Mexico,
+                                                87111.
+                                            </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <div class="rotated-icon">
+                                                <div class="sqaure-nebir"></div>
+                                                <i class="fa fa-mobile"></i>
+                                            </div>
+                                            <p><strong> Cell No:</strong> 1-800-123-456 </p>
+                                        </div>
+                                        <div class="clearfix">
+                                            <div class="rotated-icon">
+                                                <div class="sqaure-nebir"></div>
+                                                <i class="fa fa-envelope-o"></i>
+                                            </div>
+                                            <p>
+                                                <strong> Email:</strong> developer@gmail.com
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <ul class="social-box">
+                                    <li><a class="facebook-icon" href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a class="twitter-icon" href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a class="g-plus-icon" href="#"><i class="fa fa-google-plus"></i></a></li>
+                                    <li><a class="linkedin-icon" href="#"><i class="fa fa-linkedin"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div> <!-- block-content -->
+        </div> <!-- overlay-3 -->
+    </div> 
+
+    <footer id="site-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="copyright">&copy; 2014 Developer</div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="designed-by">Designed By <a href="http://themewagon.com/" target="_blank">ThemeWagon</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer> 
+
+
+   
+
+    
+    
+
+    {% include 'script.html' %}
+    
+   
+    <script>
+
+        $(document).ready(function () {
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                autoplayHoverPause: true,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    600: {
+                        items: 1,
+                    },
+                    1000: {
+                        items: 1,
+                    }
+                }
+            })
+        });
+    </script>
+
+</body>
+
+</html>

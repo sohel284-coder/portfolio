@@ -1,0 +1,39 @@
+
+<div class="content-block" id="myProject">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12 col-lg-3">
+                <h2 class="section-title text-uppercase mb-3">projects</h2>
+            </div>
+            <div class="col-12 col-lg-9">
+                <div class="project-toolbar">
+                    <div class="btn-group flex-wrap">
+                        <a href="#" id="all_btn" @click.prevent="changeAll" class="btn btn-lg active">All</a>
+                        <a href="#" id="pers_btn" @click.prevent="changePers" class="btn btn-lg">Personal</a>
+                        <a href="#" id="prof_btn" @click.prevent="changeProf" class="btn btn-lg">Profesional</a>
+                    </div>
+                    <div class="row mt-5" v-for="project in Projects">
+                        <div class="col-12 col-lg-8 ">
+                            <div class="project-inner mb-sm-3">
+                                <h4 class="project-title">[[project.name]]</h4>
+                                <p class="project-desc text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                                    Incidunt, delectus?</p>
+                                
+                            </div>
+                            <div class="code-button mt-3">
+                                <a :href="project.git_url" class="btn btn-outline-primary btn-sm mb-3">code</a>
+                                <a :href="project.deploy_url" class="btn btn-outline-success btn-sm mb-3 mx-4" v-if="project.is_deployed">Live</a>
+                            </div>
+                        </div>
+                        
+                        <div class="col-12 col-lg-4">
+                            <div class="img ml-lg-5 ">
+                                <img :src="project.image" alt="" style="height: 120px; width: 200px;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

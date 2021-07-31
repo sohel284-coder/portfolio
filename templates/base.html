@@ -1,0 +1,164 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+    integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Oxygen&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+  {% block css %}
+  <style>
+
+  </style>
+  {% endblock css %}
+</head>
+
+<body>
+  {% include 'navbar.html' %}
+  {% for message in messages %}
+  <div class="text-center alert pt-3 alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+    <strong></strong> {{ message }}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  {% endfor %}
+  <div class="main mt-5" id="app">
+    {% block body %}
+    {% endblock body %}
+  </div>
+
+  
+  
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+    integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"
+    integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF"
+    crossorigin="anonymous"></script>
+
+
+  {% if debug %}
+  <script src="{% static 'vue/vue.js' %}"></script>
+  {% else %}
+  <script src="{% static 'vue/vue.min.js' %}"></script>
+  {% endif %}
+
+  <script type="text/javascript">
+    var app = new Vue({
+      el: "#app",
+      delimiters: ['[[', ']]'],
+      data: {
+        Projects: [],
+        is_deployed: null,
+      },
+      mounted: function () {
+        this.allProject();
+      },
+      methods: {
+        changePers: function () {
+          $("#pers_btn").addClass('active');
+          if ($("#pers_btn").hasClass('active')) {
+            this.persProject();
+          }
+
+          $("#all_btn").removeClass('active');
+          $("#pers_btn").css('background', '#262626');
+          $("#pers_btn").css('border', 'solid 1px #262626');
+          $("#all_btn").css('background', '#ea000d');
+          $("#all_btn").css('border', '#ea000d');
+          $("#prof_btn").css('background', '#ea000d');
+          $("#prof_btn").css('border', '#ea000d');
+        },
+
+        changeAll: function () {
+          $("#all_btn").addClass('active');
+          if ($("#all_btn").hasClass('active')) {
+            this.allProject();
+          }
+          $("#pers_btn").removeClass('active');
+          $("#pers_btn").removeClass('active');
+          $("#all_btn").css('background', '#262626');
+          $("#all_btn").css('border', 'solid 1px #262626');
+          $("#pers_btn").css('background', '#ea000d');
+          $("#pers_btn").css('border', '#ea000d');
+          $("#prof_btn").css('background', '#ea000d');
+          $("#prof_btn").css('border', '#ea000d');
+
+        },
+        changeProf: function () {
+          $("#prof_btn").addClass('active')
+          if ($("#prof_btn").hasClass('active')) {
+            this.profProject();
+          }
+          $("#all_btn").removeClass('active');
+          $("#pers_btn").removeClass('active');
+          $("#prof_btn").css('background', '#262626');
+          $("#prof_btn").css('border', 'solid 1px #262626');
+          $("#all_btn").css('background', '#ea000d');
+          $("#all_btn").css('border', '#ea000d');
+          $("#pers_btn").css('background', '#ea000d');
+          $("#pers_btn").css('border', '#ea000d');
+
+
+        },
+        allProject: function () {
+          $.ajax({
+            method: 'GET',
+            url: 'api/all-project/',
+          }).done(response => {
+            this.Projects = response;
+          }).catch(error => {
+            console.log(error);
+          })
+
+        },
+        persProject: function () {
+          $.ajax({
+            method: 'GET',
+            url: 'api/pers-project/',
+          }).done(response => {
+            this.Projects = response;
+            console.log(this.Projects);
+          }).catch(error => {
+            console.log(error);
+          })
+
+        },
+        profProject: function () {
+          $.ajax({
+            method: 'GET',
+            url: 'api/prof-project/',
+          }).done(response => {
+            this.Projects = response;
+
+          }).catch(error => {
+            console.log(error);
+          })
+
+        },
+
+
+      }
+
+    })
+
+   
+
+
+  </script>
+
+</body>
+
+</html>

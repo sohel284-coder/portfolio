@@ -1,0 +1,272 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+<style>
+    body {
+        font-family: 'Nunito Sans', sans-serif;
+    }
+
+    .item-desc {
+        font-family: 'Nunito Sans', sans-serif;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 27px;
+        color: #595C6E;
+    }
+
+    .item-title {
+        font-family: 'Oxygen', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 30px;
+        color: #000000;
+    }
+
+    h2,
+    h4 {
+        font-family: 'Oxygen', sans-serif;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 28px;
+        line-height: 42px;
+        color: #000000;
+    }
+
+    #hire_btn {
+        background-color: #ea000d;
+        border: solid 2px #ea000d;
+        color: #ffffff;
+        width: 150px;
+        box-shadow: 0px 8px 24px rgba(70, 91, 186, 0.24);
+        border-radius: 6px;
+        font-family: 'Nunito Sans', sans-serif;
+        font-size: 24px;
+        line-height: 36px;
+        font-style: normal;
+
+    }
+
+    #hire_btn:hover {
+        background-color: #262626;
+        border: solid 2px #262626;
+        color: #ffffff;
+    }
+
+    #cv_btn {
+        background-color: #262626;
+        border: solid 2px #262626;
+        color: #ffffff;
+        width: 150px;
+        box-shadow: 0px 8px 24px rgba(70, 91, 186, 0.24);
+        border-radius: 6px;
+        font-family: 'Nunito Sans', sans-serif;
+        font-style: normal;
+        font-size: 24px;
+        line-height: 36px;
+
+    }
+
+    #cv_btn:hover {
+        background-color: #ea000d;
+        border: solid 2px #ea000d;
+        color: #fff;
+    }
+    i {
+        font-size: 48px;
+    }
+
+    .fa-python {
+        color: #4B8BBE;
+    }
+
+    .fa-js-square {
+        color: #f0db4f;
+    }
+
+    .fa-vuejs {
+        color: #42b883;
+    }
+
+    .fa-html5 {
+        color: #e34c26;
+    }
+
+    .fa-css3-alt {
+        color: #264de4;
+    }
+
+    .fa-ubuntu {
+        color: #aa6128;
+    }
+
+    .fa-windows {
+        color: #00adef;
+    }
+
+    .fa-database {
+        color: #50a4e6;
+    }
+
+    .fa-android {
+        color: #3cb474;
+    }
+
+    .fa-bootstrap {
+        color: #8467e4;
+    }
+
+    #all_btn {
+
+        border: solid 1px #262626;
+        background-color: #262626;
+        color: #ffffff;
+    }
+
+    #pers_btn {
+
+        border: solid 1px #ea000d;
+        background-color: #ea000d;
+        color: #ffffff;
+    }
+
+    #prof_btn {
+
+        border: solid 1px #ea000d;
+        background-color: #ea000d;
+        color: #ffffff;
+
+    }
+
+    #pers_btn:hover {
+        border: solid 1px #262626;
+        background-color: #262626;
+        color: #ffffff;
+    }
+
+    #prof_btn:hover {
+        border: solid 1px #262626;
+        background-color: #262626;
+        color: #ffffff;
+    }
+
+    #pers_btn:focus {
+        outline: none !important;
+        border: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+    }
+
+    #prof_btn:focus {
+        outline: none !important;
+        border: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+    }
+
+    #all_btn:focus {
+        outline: none !important;
+        border: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        border: 1px solid #ea000d;
+        border-radius: 6px;
+
+    }
+
+    .form-group label {
+        font-family: 'Oxygen', sans-serif;
+    }
+
+    input:focus {
+        outline: none;
+    }
+
+    .btn-submit {
+        background-color: #ea000d;
+        border: solid 2px #ea000d;
+        color: #ffffff;
+        box-shadow: 0px 4px 12px rgba(70, 91, 186, 0.24);
+        border-radius: 6px;
+    }
+
+    .btn-submit:hover {
+        background-color: #262626;
+        border: solid 2px #262626;
+        color: #ffffff;
+        box-shadow: 0px 4px 12px rgba(70, 91, 186, 0.24);
+        border-radius: 6px;
+    }
+
+    nav {
+        box-shadow: 6px 6px 6px #eeeeee;
+
+    }
+
+    /* change the brand and text color */
+    .navbar-custom .navbar-brand,
+    .navbar-custom .navbar-text {
+        color: #ea000d;
+    }
+
+
+    /* change the link color */
+    .navbar-custom .navbar-nav .nav-link {
+        color: #262626;
+    }
+
+    /* change the color of active or hovered links */
+    .navbar-custom .nav-item.active .nav-link,
+    .navbar-custom .nav-item:hover .nav-link {
+        color: #ea000d;
+    }
+</style>
+{% endblock css %}
+
+{% block body %}
+<div class="content-block" id="myContact">
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-12 col-lg-3">
+                <h2 class="">Contact Me</h2>
+            </div>
+            <div class="contact-form col-12 col-lg-7 ">
+                <form class="" action="" method="POST">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Email address</label>
+                        <input type="email" class="form-control" id="email" name="email"
+                            placeholder=" Enter your email address" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Name</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Phone</label>
+                        <input type="phone" class="form-control" id="phone" name="phone"
+                            placeholder="Enter your mobile number" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput1">Subject</label>
+                        <input type="text" class="form-control" id="subject" name="subject" placeholder="Enter subject of your message" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1">Message</label>
+                        <textarea class="form-control" id="desc" name="desc" rows="3" placeholder="Enter your message" required></textarea>
+                    </div>
+
+                    <button type="submit"  class="btn btn-lg w-25 btn-submit mt-3">Send</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+</div>
+{% endblock body %}
