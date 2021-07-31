@@ -77,28 +77,28 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME':'portfoliodb',
-#         'USER':'portfolio',
-#         'PASSWORD':'1234',
-#         'PORT': '5432',
-#         'HOST': '*',
-#     }
-# }
-
-#Deploy mood database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'d3u3mta2p9rk7b',
-        'USER':'zezlcxmpxouotn',
-        'PASSWORD':'2349fe9d20a73ae21d60cff8447216389779722f57cd67452bedd272afb42847',
+        'NAME':'portfoliodb',
+        'USER':'portfolio',
+        'PASSWORD':'1234',
         'PORT': '5432',
-        'HOST': 'ec2-52-0-67-144.compute-1.amazonaws.com',
+        'HOST': '*',
     }
 }
+
+#Deploy mood database
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME':'d3u3mta2p9rk7b',
+#         'USER':'zezlcxmpxouotn',
+#         'PASSWORD':'2349fe9d20a73ae21d60cff8447216389779722f57cd67452bedd272afb42847',
+#         'PORT': '5432',
+#         'HOST': 'ec2-52-0-67-144.compute-1.amazonaws.com',
+#     }
+# }
 
 
 
@@ -159,4 +159,9 @@ EMAIL_HOST_USER = 'arana.151284@gmail.com'
 EMAIL_HOST_PASSWORD = '<rana.284>'
 EMAIL_USE_TLS = True
 
+
+
+import dj_database_url 
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
 
