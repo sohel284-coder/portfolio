@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'portfolio.urls'
@@ -89,16 +90,16 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # }
 
 # Deploy mood database
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'d3u3mta2p9rk7b',
-        'USER':'zezlcxmpxouotn',
-        'PASSWORD':'2349fe9d20a73ae21d60cff8447216389779722f57cd67452bedd272afb42847',
-        'PORT': '5432',
-        'HOST': 'ec2-52-0-67-144.compute-1.amazonaws.com',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME':'d3u3mta2p9rk7b',
+#         'USER':'zezlcxmpxouotn',
+#         'PASSWORD':'2349fe9d20a73ae21d60cff8447216389779722f57cd67452bedd272afb42847',
+#         'PORT': '5432',
+#         'HOST': 'ec2-52-0-67-144.compute-1.amazonaws.com',
+#     }
+# }
 
 
 
@@ -147,7 +148,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # static files
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 django_heroku.settings(locals())
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
