@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
+import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,7 +26,7 @@ SECRET_KEY = 'g=drr619%*#)g#nhwwywv#t-n=wk_m5spp!fou*-m)33hrsp4+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -76,16 +77,30 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME':'portfoliodb',
+#         'USER':'portfolio',
+#         'PASSWORD':'1234',
+#         'PORT': '5432',
+#         'HOST': '*',
+#     }
+# }
+
+#Deploy mood database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME':'portfoliodb',
-        'USER':'portfolio',
-        'PASSWORD':'1234',
+        'NAME':'d3u3mta2p9rk7b',
+        'USER':'zezlcxmpxouotn',
+        'PASSWORD':'2349fe9d20a73ae21d60cff8447216389779722f57cd67452bedd272afb42847',
         'PORT': '5432',
-        'HOST': '*',
+        'HOST': 'ec2-52-0-67-144.compute-1.amazonaws.com',
     }
 }
+
+
 
 
 # Password validation
@@ -134,6 +149,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
+django_heroku.settings(locals())
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
