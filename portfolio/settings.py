@@ -78,16 +78,16 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME':'portfoliodb',
-#         'USER':'portfolio',
-#         'PASSWORD':'1234',
-#         'PORT': '5432',
-#         'HOST': '*',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME':'portfoliodb',
+        'USER':'portfolio',
+        'PASSWORD':'1234',
+        'PORT': '5432',
+        'HOST': '*',
+    }
+}
 
 # Deploy mood database
 # DATABASES = {
@@ -166,7 +166,7 @@ EMAIL_USE_TLS = True
 
 
 
-# import dj_database_url 
-# prod_db  =  dj_database_url.config(conn_max_age=500)
-# DATABASES['default'].update(prod_db)
+import dj_database_url 
+prod_db  =  dj_database_url.config(conn_max_age=500)
+DATABASES['default'].update(prod_db)
 
